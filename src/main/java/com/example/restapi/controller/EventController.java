@@ -33,7 +33,7 @@ public class EventController {
     public ResponseEntity<String> saveEvent(@RequestBody Event event) {
         Event savedEvent = eventService.saveEvent(event);
         if (savedEvent != null) {
-            return ResponseEntity.status(HttpStatus.CREATED).body("Post successful.");
+            return ResponseEntity.status(HttpStatus.CREATED).body("Event added successfully.");
         } else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to save event.");
         }
