@@ -40,8 +40,10 @@ public class EventServiceImpl implements EventService {
                 () -> new ResourceNotFoundException("Event", "Id", id));
 
         existingEvent.setEventName(event.getEventName());
+        existingEvent.setEventMemo(event.getEventMemo());
         existingEvent.setEventStart(event.getEventStart());
         existingEvent.setEventEnd(event.getEventEnd());
+        existingEvent.setEventRepeat(event.getEventRepeat());
         // save existing event to DB
         eventRepository.save(existingEvent);
         return existingEvent;

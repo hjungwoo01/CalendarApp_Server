@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/db_calendar/events")
+@RequestMapping("/db_calendar/scheduler")
 public class EventController {
     private EventService eventService;
 
@@ -25,17 +25,20 @@ public class EventController {
 
     @GetMapping("{id}")
     public ResponseEntity<Event> getEventById(@PathVariable("id") long eventId) {
-        return new ResponseEntity<Event>(eventService.getEventById(eventId), HttpStatus.OK);
+        return new ResponseEntity<>(eventService.getEventById(eventId), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<Event> saveEvent(@RequestBody Event event) {
+        if (event.getEventName() == null) {
+            throw new IllegalArgumentException("Event name cannot be null");
+        }
         return new ResponseEntity<>(eventService.saveEvent(event), HttpStatus.CREATED);
     }
 
     @PutMapping("{id}")
     public ResponseEntity<Event> updateEvent(@PathVariable ("id") long id, @RequestBody Event event) {
-        return new ResponseEntity<Event>(eventService.updateEvent(event, id), HttpStatus.OK);
+        return new ResponseEntity<>(eventService.updateEvent(event, id), HttpStatus.OK);
     }
 
     @DeleteMapping("{id}")
