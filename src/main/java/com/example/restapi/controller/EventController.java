@@ -1,6 +1,7 @@
 package com.example.restapi.controller;
 
 import com.example.restapi.model.Event;
+import com.example.restapi.model.Memo;
 import com.example.restapi.service.EventService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,11 +30,13 @@ public class EventController {
     }
 
     @PostMapping
-    public ResponseEntity<Event> saveEvent(@RequestBody Event event) {
-        if (event.getEventName() == null) {
-            throw new IllegalArgumentException("Event name cannot be null");
+    public ResponseEntity<String> saveEvent(@RequestBody Event event) {
+        Event savedEvent = eventService.saveEvent(event);
+        if (savedEvent != null) {
+            return ResponseEntity.status(HttpStatus.CREATED).body("Post successful.");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to save event.");
         }
-        return new ResponseEntity<>(eventService.saveEvent(event), HttpStatus.CREATED);
     }
 
     @PutMapping("{id}")
