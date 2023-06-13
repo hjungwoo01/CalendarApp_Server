@@ -1,4 +1,6 @@
-package com.example.restapi.model;
+package com.example.restapi.model.dao;
+
+import com.example.restapi.model.Event;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package com.example.restapi.service.impl;
 
 import java.util.List;
 
-import com.example.restapi.model.EventDAO;
+import com.example.restapi.model.dao.EventDAO;
 import org.springframework.stereotype.Service;
 
 import com.example.restapi.exception.ResourceNotFoundException;

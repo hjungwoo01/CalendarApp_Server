@@ -1,6 +1,8 @@
-package com.example.restapi.model;
+package com.example.restapi.model.dao.impl;
 
 import com.example.restapi.exception.ResourceNotFoundException;
+import com.example.restapi.model.Event;
+import com.example.restapi.model.dao.EventDAO;
 import com.example.restapi.repository.EventRepository;
 import org.springframework.stereotype.Repository;
 
