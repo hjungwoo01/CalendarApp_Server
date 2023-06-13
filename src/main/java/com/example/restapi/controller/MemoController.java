@@ -1,6 +1,5 @@
 package com.example.restapi.controller;
 
-import com.example.restapi.model.Event;
 import com.example.restapi.model.Memo;
 import com.example.restapi.service.MemoService;
 import org.springframework.http.HttpStatus;
