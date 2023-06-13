@@ -19,7 +19,7 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @GetMapping
+    @GetMapping("/get-all")
     public List<Event> getAllEvents() {
         return eventService.getAllEvents();
     }
@@ -29,7 +29,7 @@ public class EventController {
         return new ResponseEntity<>(eventService.getEventById(eventId), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<String> saveEvent(@RequestBody Event event) {
         Event savedEvent = eventService.saveEvent(event);
         if (savedEvent != null) {
