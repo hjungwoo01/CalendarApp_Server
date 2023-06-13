@@ -2,57 +2,53 @@ package com.example.restapi.service.impl;
 
 import java.util.List;
 
+import com.example.restapi.model.EventDAO;
 import org.springframework.stereotype.Service;
 
 import com.example.restapi.exception.ResourceNotFoundException;
 import com.example.restapi.service.EventService;
 import com.example.restapi.model.Event;
-import com.example.restapi.repository.EventRepository;
 
 @Service
 public class EventServiceImpl implements EventService {
+    private final EventDAO eventDAO;
 
-    private EventRepository eventRepository;
-    public EventServiceImpl(EventRepository eventRepository) {
-        super();
-        this.eventRepository = eventRepository;
+    public EventServiceImpl(EventDAO eventDAO) {
+        this.eventDAO = eventDAO;
     }
     @Override
     public Event saveEvent(Event event) {
-        return eventRepository.save(event);
+        return eventDAO.save(event);
     }
 
     @Override
     public List<Event> getAllEvents() {
-        return eventRepository.findAll();
+        return eventDAO.getAll();
     }
 
     @Override
     public Event getEventById(long id) {
-        return eventRepository.findById(id).orElseThrow(() ->
-                new ResourceNotFoundException("Event", "Id", id));
+        Event event = eventDAO.getById(id);
+        if (event == null) {
+            throw new ResourceNotFoundException("Event", "Id", id);
+        }
+        return event;
     }
 
     @Override
     public Event updateEvent(Event event, long id) {
-        // need to check whether event with given id exists in DB
-        Event existingEvent = eventRepository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException("Event", "Id", id));
-
+        Event existingEvent = getEventById(id);
         existingEvent.setEventName(event.getEventName());
         existingEvent.setEventMemo(event.getEventMemo());
         existingEvent.setEventStart(event.getEventStart());
         existingEvent.setEventEnd(event.getEventEnd());
         existingEvent.setEventRepeat(event.getEventRepeat());
-        // save existing event to DB
-        eventRepository.save(existingEvent);
-        return existingEvent;
+        return eventDAO.save(existingEvent);
     }
 
     @Override
     public void deleteEvent(long id) {
-        eventRepository.findById(id).orElseThrow(() ->
-                new ResourceNotFoundException("Event", "Id", id));
-        eventRepository.deleteById(id);
+        getEventById(id);
+        eventDAO.delete(id);
     }
 }
