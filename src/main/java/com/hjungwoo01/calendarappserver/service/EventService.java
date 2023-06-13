@@ -1,6 +1,6 @@
-package com.example.restapi.service;
+package com.hjungwoo01.calendarappserver.service;
 
-import com.example.restapi.model.Event;
+import com.hjungwoo01.calendarappserver.model.Event;
 
 import java.util.List;
 public interface EventService {

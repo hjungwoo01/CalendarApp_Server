@@ -1,4 +1,4 @@
-package com.example.restapi.model;
+package com.hjungwoo01.calendarappserver.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,6 +1,6 @@
-package com.example.restapi.model.dao;
+package com.hjungwoo01.calendarappserver.model.dao;
 
-import com.example.restapi.model.Event;
+import com.hjungwoo01.calendarappserver.model.Event;
 
 import java.util.List;
 

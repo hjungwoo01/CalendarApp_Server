@@ -1,9 +1,9 @@
-package com.example.restapi.model.dao.impl;
+package com.hjungwoo01.calendarappserver.model.dao.impl;
 
-import com.example.restapi.exception.ResourceNotFoundException;
-import com.example.restapi.model.Memo;
-import com.example.restapi.model.dao.MemoDAO;
-import com.example.restapi.repository.MemoRepository;
+import com.hjungwoo01.calendarappserver.exception.ResourceNotFoundException;
+import com.hjungwoo01.calendarappserver.model.Memo;
+import com.hjungwoo01.calendarappserver.model.dao.MemoDAO;
+import com.hjungwoo01.calendarappserver.repository.MemoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

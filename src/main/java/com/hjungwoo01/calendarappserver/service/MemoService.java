@@ -1,6 +1,6 @@
-package com.example.restapi.service;
+package com.hjungwoo01.calendarappserver.service;
 
-import com.example.restapi.model.Memo;
+import com.hjungwoo01.calendarappserver.model.Memo;
 
 import java.util.List;
 

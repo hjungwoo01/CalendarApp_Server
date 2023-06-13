@@ -1,6 +1,6 @@
-package com.example.restapi.repository;
+package com.hjungwoo01.calendarappserver.repository;
 
-import com.example.restapi.model.Memo;
+import com.hjungwoo01.calendarappserver.model.Memo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

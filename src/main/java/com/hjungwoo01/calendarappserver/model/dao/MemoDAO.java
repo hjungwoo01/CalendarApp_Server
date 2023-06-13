@@ -1,6 +1,6 @@
-package com.example.restapi.model.dao;
+package com.hjungwoo01.calendarappserver.model.dao;
 
-import com.example.restapi.model.Memo;
+import com.hjungwoo01.calendarappserver.model.Memo;
 
 import java.util.List;
 

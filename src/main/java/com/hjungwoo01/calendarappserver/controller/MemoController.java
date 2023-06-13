@@ -1,7 +1,7 @@
-package com.example.restapi.controller;
+package com.hjungwoo01.calendarappserver.controller;
 
-import com.example.restapi.model.Memo;
-import com.example.restapi.service.MemoService;
+import com.hjungwoo01.calendarappserver.model.Memo;
+import com.hjungwoo01.calendarappserver.service.MemoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

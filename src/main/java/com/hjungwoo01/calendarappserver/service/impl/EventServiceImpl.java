@@ -1,13 +1,13 @@
-package com.example.restapi.service.impl;
+package com.hjungwoo01.calendarappserver.service.impl;
 
 import java.util.List;
 
-import com.example.restapi.model.dao.EventDAO;
+import com.hjungwoo01.calendarappserver.model.dao.EventDAO;
+import com.hjungwoo01.calendarappserver.model.Event;
 import org.springframework.stereotype.Service;
 
-import com.example.restapi.exception.ResourceNotFoundException;
-import com.example.restapi.service.EventService;
-import com.example.restapi.model.Event;
+import com.hjungwoo01.calendarappserver.exception.ResourceNotFoundException;
+import com.hjungwoo01.calendarappserver.service.EventService;
 
 @Service
 public class EventServiceImpl implements EventService {

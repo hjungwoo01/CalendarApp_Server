@@ -1,13 +1,12 @@
-package com.example.restapi.service.impl;
+package com.hjungwoo01.calendarappserver.service.impl;
 
 import java.util.List;
 
-import com.example.restapi.model.dao.MemoDAO;
+import com.hjungwoo01.calendarappserver.model.dao.MemoDAO;
+import com.hjungwoo01.calendarappserver.exception.ResourceNotFoundException;
+import com.hjungwoo01.calendarappserver.model.Memo;
+import com.hjungwoo01.calendarappserver.service.MemoService;
 import org.springframework.stereotype.Service;
-
-import com.example.restapi.exception.ResourceNotFoundException;
-import com.example.restapi.service.MemoService;
-import com.example.restapi.model.Memo;
 
 @Service
 public class MemoServiceImpl implements MemoService {
