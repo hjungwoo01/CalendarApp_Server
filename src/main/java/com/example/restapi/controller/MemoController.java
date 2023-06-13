@@ -1,5 +1,6 @@
 package com.example.restapi.controller;
 
+import com.example.restapi.model.Event;
 import com.example.restapi.model.Memo;
 import com.example.restapi.service.MemoService;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class MemoController {
         this.memoService = memoService;
     }
 
-    @GetMapping
+    @GetMapping("/get-all")
     public List<Memo> getAllMemos() {
         return memoService.getAllMemos();
     }
@@ -28,7 +29,7 @@ public class MemoController {
         return new ResponseEntity<>(memoService.getMemoById(memoId), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<String> saveMemo(@RequestBody Memo memo) {
         Memo savedMemo = memoService.saveMemo(memo);
         if (savedMemo != null) {
@@ -39,14 +40,19 @@ public class MemoController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Memo> updateMemo(@PathVariable ("id") long id, @RequestBody Memo memo) {
-        return new ResponseEntity<>(memoService.updateMemo(memo, id), HttpStatus.OK);
+    public ResponseEntity<String> updateMemo(@PathVariable ("id") long id, @RequestBody Memo memo) {
+        Memo updateMemo = memoService.updateMemo(memo,id);
+        if(updateMemo != null) {
+            return ResponseEntity.status(HttpStatus.OK).body("Memo updated.");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Memo update failed.");
+        }
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteMemo(@PathVariable("id") long id) {
         // delete event from DB
         memoService.deleteMemo(id);
-        return new ResponseEntity<String>("Memo deleted successfully.", HttpStatus.OK);
+        return new ResponseEntity<String>("Memo deleted.", HttpStatus.OK);
     }
 }

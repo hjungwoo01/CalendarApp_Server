@@ -40,8 +40,13 @@ public class EventController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Event> updateEvent(@PathVariable ("id") long id, @RequestBody Event event) {
-        return new ResponseEntity<>(eventService.updateEvent(event, id), HttpStatus.OK);
+    public ResponseEntity<String> updateEvent(@PathVariable ("id") long id, @RequestBody Event event) {
+        Event updateEvent = eventService.updateEvent(event,id);
+        if(updateEvent != null) {
+            return ResponseEntity.status(HttpStatus.OK).body("Event updated.");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Event update failed.");
+        }
     }
 
     @DeleteMapping("{id}")
