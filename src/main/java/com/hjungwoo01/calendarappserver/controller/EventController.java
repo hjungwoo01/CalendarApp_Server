@@ -23,7 +23,7 @@ public class EventController {
         return eventService.getAllEvents();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/get/{id}")
     public ResponseEntity<Event> getEventById(@PathVariable("id") long eventId) {
         return new ResponseEntity<>(eventService.getEventById(eventId), HttpStatus.OK);
     }
@@ -38,7 +38,7 @@ public class EventController {
         }
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<String> updateEvent(@PathVariable ("id") long id, @RequestBody Event event) {
         Event updateEvent = eventService.updateEvent(event,id);
         if(updateEvent != null) {
@@ -48,7 +48,7 @@ public class EventController {
         }
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteEvent(@PathVariable("id") long id) {
         // delete event from DB
         eventService.deleteEvent(id);

@@ -20,15 +20,14 @@ public class Event {
     @Column(name = "event_memo")
     private String eventMemo;
 
-    //YYYYMMDDHHMM
+    //yyyyMMddHHmm format
     @Column(name = "event_start")
-    private int eventStart;
+    private String eventStart;
 
-    //YYYYMMDDHHMM
+    //yyyyMMddHHmm format
     @Column(name = "event_end")
-    private int eventEnd;
+    private String eventEnd;
 
-    //YYYYMMDDHHMM -> start date repeat?
     @Column(name = "event_repeat")
-    private int eventRepeat;
+    private String eventRepeat;
 }
