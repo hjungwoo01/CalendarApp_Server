@@ -20,10 +20,12 @@ public class Event {
     @Column(name = "event_memo")
     private String eventMemo;
 
+    @NotNull
     //yyyyMMddHHmm format
     @Column(name = "event_start")
     private String eventStart;
 
+    @NotNull
     //yyyyMMddHHmm format
     @Column(name = "event_end")
     private String eventEnd;
