@@ -32,4 +32,8 @@ public class Event {
 
     @Column(name = "event_repeat")
     private String eventRepeat;
+
+    //yyyyMMdd format
+    @Column(name = "event_endrepeat")
+    private String eventEndRepeat;
 }

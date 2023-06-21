@@ -43,6 +43,7 @@ public class EventServiceImpl implements EventService {
         existingEvent.setEventStart(event.getEventStart());
         existingEvent.setEventEnd(event.getEventEnd());
         existingEvent.setEventRepeat(event.getEventRepeat());
+        existingEvent.setEventEndRepeat(event.getEventEndRepeat());
         return eventDAO.save(existingEvent);
     }
 
