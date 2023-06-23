@@ -27,6 +27,11 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    public List<Event> getEventsByOwner(String owner) {
+        return eventDAO.getByOwner(owner);
+    }
+
+    @Override
     public Event getEventById(long id) {
         Event event = eventDAO.getById(id);
         if (event == null) {
@@ -38,6 +43,7 @@ public class EventServiceImpl implements EventService {
     @Override
     public Event updateEvent(Event event, long id) {
         Event existingEvent = getEventById(id);
+        existingEvent.setOwner(event.getOwner());
         existingEvent.setEventName(event.getEventName());
         existingEvent.setEventMemo(event.getEventMemo());
         existingEvent.setEventStart(event.getEventStart());

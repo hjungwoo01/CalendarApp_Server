@@ -23,6 +23,16 @@ public class EventController {
         return eventService.getAllEvents();
     }
 
+    @GetMapping("/get-by-owner/{owner}")
+    public ResponseEntity<List<Event>> getEventsByOwner(@PathVariable("owner") String owner) {
+        List<Event> events = eventService.getEventsByOwner(owner);
+        if (!events.isEmpty()) {
+            return ResponseEntity.ok(events);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/get/{id}")
     public ResponseEntity<Event> getEventById(@PathVariable("id") long eventId) {
         return new ResponseEntity<>(eventService.getEventById(eventId), HttpStatus.OK);

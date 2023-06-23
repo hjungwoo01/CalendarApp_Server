@@ -7,7 +7,9 @@ public interface EventService {
     // CRUD Operations
     Event saveEvent(Event event);
     List<Event> getAllEvents();
+    List<Event> getEventsByOwner(String owner);
     Event getEventById(long id);
     Event updateEvent(Event event, long id);
     void deleteEvent(long id);
+
 }

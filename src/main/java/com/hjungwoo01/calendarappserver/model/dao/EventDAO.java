@@ -9,4 +9,5 @@ public interface EventDAO {
     List<Event> getAll();
     Event getById(long id);
     void delete(long id);
+    List<Event> getByOwner(String owner);
 }

@@ -28,6 +28,11 @@ public class EventDAOImpl implements EventDAO {
     }
 
     @Override
+    public List<Event> getByOwner(String owner) {
+        return eventRepository.findByOwner(owner);
+    }
+
+    @Override
     public Event getById(long id) {
         return eventRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("Event", "Id", id));

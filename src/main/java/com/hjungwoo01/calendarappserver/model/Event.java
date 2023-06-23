@@ -14,6 +14,10 @@ public class Event {
     private long id;
 
     @NotNull
+    @Column(name = "owner")
+    private String owner;
+
+    @NotNull
     @Column(name = "event_name")
     private String eventName;
 
