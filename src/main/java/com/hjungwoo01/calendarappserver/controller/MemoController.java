@@ -1,5 +1,6 @@
 package com.hjungwoo01.calendarappserver.controller;
 
+import com.hjungwoo01.calendarappserver.model.Event;
 import com.hjungwoo01.calendarappserver.model.Memo;
 import com.hjungwoo01.calendarappserver.service.MemoService;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,27 @@ public class MemoController {
         return memoService.getAllMemos();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/get-by-owner/{owner}")
+    public ResponseEntity<List<Memo>> getMemosByOwner(@PathVariable("owner") String owner) {
+        List<Memo> memos = memoService.getMemosByOwner(owner);
+        if (!memos.isEmpty()) {
+            return ResponseEntity.ok(memos);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/get-by-receiver/{receiver}")
+    public ResponseEntity<List<Memo>> getMemosByReceiver(@PathVariable("receiver") String receiver) {
+        List<Memo> memos = memoService.getMemosByReceiver(receiver);
+        if (!memos.isEmpty()) {
+            return ResponseEntity.ok(memos);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/get/{id}")
     public ResponseEntity<Memo> getMemoById(@PathVariable("id") long memoId) {
         return new ResponseEntity<>(memoService.getMemoById(memoId), HttpStatus.OK);
     }
@@ -38,7 +59,7 @@ public class MemoController {
         }
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<String> updateMemo(@PathVariable ("id") long id, @RequestBody Memo memo) {
         Memo updateMemo = memoService.updateMemo(memo,id);
         if(updateMemo != null) {
@@ -48,7 +69,7 @@ public class MemoController {
         }
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteMemo(@PathVariable("id") long id) {
         // delete event from DB
         memoService.deleteMemo(id);

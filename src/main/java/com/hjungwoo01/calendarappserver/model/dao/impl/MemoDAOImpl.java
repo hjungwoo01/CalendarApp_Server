@@ -1,6 +1,7 @@
 package com.hjungwoo01.calendarappserver.model.dao.impl;
 
 import com.hjungwoo01.calendarappserver.exception.ResourceNotFoundException;
+import com.hjungwoo01.calendarappserver.model.Event;
 import com.hjungwoo01.calendarappserver.model.Memo;
 import com.hjungwoo01.calendarappserver.model.dao.MemoDAO;
 import com.hjungwoo01.calendarappserver.repository.MemoRepository;
@@ -31,6 +32,16 @@ public class MemoDAOImpl implements MemoDAO {
     public Memo getById(long id) {
         return memoRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("Memo", "Id", id));
+    }
+
+    @Override
+    public List<Memo> getByOwner(String owner) {
+        return memoRepository.findByOwner(owner);
+    }
+
+    @Override
+    public List<Memo> getByReceiver(String receiver) {
+        return memoRepository.findByReceiver(receiver);
     }
 
     @Override

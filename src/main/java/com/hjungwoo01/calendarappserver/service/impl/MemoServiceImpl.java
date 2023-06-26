@@ -26,6 +26,16 @@ public class MemoServiceImpl implements MemoService {
     }
 
     @Override
+    public List<Memo> getMemosByOwner(String owner) {
+        return memoDAO.getByOwner(owner);
+    }
+
+    @Override
+    public List<Memo> getMemosByReceiver(String receiver) {
+        return memoDAO.getByReceiver(receiver);
+    }
+
+    @Override
     public Memo getMemoById(long id) {
         Memo memo = memoDAO.getById(id);
         if (memo == null) {
@@ -37,8 +47,11 @@ public class MemoServiceImpl implements MemoService {
     @Override
     public Memo updateMemo(Memo memo, long id) {
         Memo existingMemo = getMemoById(id);
+        existingMemo.setOwner(memo.getOwner());
         existingMemo.setReceiver(memo.getReceiver());
+        existingMemo.setMemoName(memo.getMemoName());
         existingMemo.setMemo(memo.getMemo());
+        existingMemo.setDate(memo.getDate());
         return memoDAO.save(existingMemo);
     }
 

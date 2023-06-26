@@ -11,9 +11,18 @@ public class Memo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "owner")
+    private String owner;
+
     @Column(name = "receiver")
     private String receiver;
 
-    @Column(name = "memo", nullable = false)
+    @Column(name = "memo_name")
+    private String memoName;
+
+    @Column(name = "memo")
     private String memo;
+
+    @Column(name = "date")
+    private String date;
 }
