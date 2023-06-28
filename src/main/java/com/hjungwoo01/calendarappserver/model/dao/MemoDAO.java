@@ -10,6 +10,5 @@ public interface MemoDAO {
     Memo getById(long id);
     void delete(long id);
     List<Memo> getByOwner(String owner);
-
     List<Memo> getByReceiver(String receiver);
 }
