@@ -1,9 +1,9 @@
-package com.hjungwoo01.calendarappserver.model.dao.impl;
+package com.hjungwoo01.calendarappserver.model.dao.event;
 
 import com.hjungwoo01.calendarappserver.exception.ResourceNotFoundException;
-import com.hjungwoo01.calendarappserver.model.Event;
-import com.hjungwoo01.calendarappserver.model.dao.EventDAO;
-import com.hjungwoo01.calendarappserver.repository.EventRepository;
+import com.hjungwoo01.calendarappserver.model.event.Event;
+import com.hjungwoo01.calendarappserver.repositories.event.EventRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 public class EventDAOImpl implements EventDAO {
 
     private final EventRepository eventRepository;
-
+    @Autowired
     public EventDAOImpl(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
     }

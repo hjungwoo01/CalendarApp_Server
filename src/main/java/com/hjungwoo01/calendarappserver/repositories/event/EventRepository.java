@@ -1,6 +1,6 @@
-package com.hjungwoo01.calendarappserver.repository;
+package com.hjungwoo01.calendarappserver.repositories.event;
 
-import com.hjungwoo01.calendarappserver.model.Event;
+import com.hjungwoo01.calendarappserver.model.event.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

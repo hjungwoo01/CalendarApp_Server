@@ -1,6 +1,6 @@
 package com.hjungwoo01.calendarappserver.controller;
 
-import com.hjungwoo01.calendarappserver.model.Event;
+import com.hjungwoo01.calendarappserver.model.event.Event;
 import com.hjungwoo01.calendarappserver.service.EventService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/db_calendar/scheduler")
+@RequestMapping("/scheduler/events")
 public class EventController {
     private EventService eventService;
 

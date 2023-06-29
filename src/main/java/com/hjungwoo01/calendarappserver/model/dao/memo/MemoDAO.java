@@ -1,6 +1,6 @@
-package com.hjungwoo01.calendarappserver.model.dao;
+package com.hjungwoo01.calendarappserver.model.dao.memo;
 
-import com.hjungwoo01.calendarappserver.model.Memo;
+import com.hjungwoo01.calendarappserver.model.memo.Memo;
 
 import java.util.List;
 

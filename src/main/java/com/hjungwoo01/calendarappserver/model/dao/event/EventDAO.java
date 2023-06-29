@@ -1,6 +1,6 @@
-package com.hjungwoo01.calendarappserver.model.dao;
+package com.hjungwoo01.calendarappserver.model.dao.event;
 
-import com.hjungwoo01.calendarappserver.model.Event;
+import com.hjungwoo01.calendarappserver.model.event.Event;
 
 import java.util.List;
 

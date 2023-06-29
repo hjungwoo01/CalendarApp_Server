@@ -1,10 +1,9 @@
-package com.hjungwoo01.calendarappserver.model.dao.impl;
+package com.hjungwoo01.calendarappserver.model.dao.memo;
 
 import com.hjungwoo01.calendarappserver.exception.ResourceNotFoundException;
-import com.hjungwoo01.calendarappserver.model.Event;
-import com.hjungwoo01.calendarappserver.model.Memo;
-import com.hjungwoo01.calendarappserver.model.dao.MemoDAO;
-import com.hjungwoo01.calendarappserver.repository.MemoRepository;
+import com.hjungwoo01.calendarappserver.model.memo.Memo;
+import com.hjungwoo01.calendarappserver.repositories.memo.MemoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,6 +13,7 @@ public class MemoDAOImpl implements MemoDAO {
 
     private final MemoRepository memoRepository;
 
+    @Autowired
     public MemoDAOImpl(MemoRepository memoRepository) {
         this.memoRepository = memoRepository;
     }

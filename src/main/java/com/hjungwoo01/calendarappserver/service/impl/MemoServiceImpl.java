@@ -2,9 +2,9 @@ package com.hjungwoo01.calendarappserver.service.impl;
 
 import java.util.List;
 
-import com.hjungwoo01.calendarappserver.model.dao.MemoDAO;
+import com.hjungwoo01.calendarappserver.model.dao.memo.MemoDAO;
 import com.hjungwoo01.calendarappserver.exception.ResourceNotFoundException;
-import com.hjungwoo01.calendarappserver.model.Memo;
+import com.hjungwoo01.calendarappserver.model.memo.Memo;
 import com.hjungwoo01.calendarappserver.service.MemoService;
 import org.springframework.stereotype.Service;
 

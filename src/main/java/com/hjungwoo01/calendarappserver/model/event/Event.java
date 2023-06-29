@@ -1,13 +1,12 @@
-package com.hjungwoo01.calendarappserver.model;
+package com.hjungwoo01.calendarappserver.model.event;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import org.antlr.v4.runtime.misc.NotNull;
 
-
 @Data
 @Entity
-@Table(name = "scheduler")
+@Table(schema = "scheduler", name = "events")
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

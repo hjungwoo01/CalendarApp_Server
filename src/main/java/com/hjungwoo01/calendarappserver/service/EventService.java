@@ -1,6 +1,6 @@
 package com.hjungwoo01.calendarappserver.service;
 
-import com.hjungwoo01.calendarappserver.model.Event;
+import com.hjungwoo01.calendarappserver.model.event.Event;
 
 import java.util.List;
 public interface EventService {

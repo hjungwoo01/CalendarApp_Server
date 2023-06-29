@@ -2,8 +2,8 @@ package com.hjungwoo01.calendarappserver.service.impl;
 
 import java.util.List;
 
-import com.hjungwoo01.calendarappserver.model.dao.EventDAO;
-import com.hjungwoo01.calendarappserver.model.Event;
+import com.hjungwoo01.calendarappserver.model.dao.event.EventDAO;
+import com.hjungwoo01.calendarappserver.model.event.Event;
 import org.springframework.stereotype.Service;
 
 import com.hjungwoo01.calendarappserver.exception.ResourceNotFoundException;

@@ -1,6 +1,6 @@
-package com.hjungwoo01.calendarappserver.repository;
+package com.hjungwoo01.calendarappserver.repositories.memo;
 
-import com.hjungwoo01.calendarappserver.model.Memo;
+import com.hjungwoo01.calendarappserver.model.memo.Memo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
