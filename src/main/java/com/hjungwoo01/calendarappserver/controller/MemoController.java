@@ -70,7 +70,6 @@ public class MemoController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteMemo(@PathVariable("id") long id) {
-        // delete event from DB
         memoService.deleteMemo(id);
         return new ResponseEntity<String>("Memo deleted.", HttpStatus.OK);
     }
