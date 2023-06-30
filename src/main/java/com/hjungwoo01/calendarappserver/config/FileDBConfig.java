@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
         transactionManagerRef = "fileTransactionManager",
         basePackages = { "com.hjungwoo01.calendarappserver.repositories.file" }
 )
-public class FileConfig {
+public class FileDBConfig {
 
     @Bean
     @ConfigurationProperties(prefix = "spring.file.datasource")

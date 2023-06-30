@@ -1,6 +1,9 @@
 package com.hjungwoo01.calendarappserver.model.file;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
+@Data
 @Entity
 @Table(schema = "memos", name = "files")
 public class File {

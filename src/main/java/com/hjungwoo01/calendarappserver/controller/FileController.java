@@ -15,10 +15,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.util.stream.Collectors;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/memos/files")
 public class FileController {
-    @Autowired
+
     private FileService fileService;
 
     @PostMapping("/upload")
