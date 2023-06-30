@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 
 public interface FileService {
-     File uploadFile(MultipartFile file) throws IOException;
+     File uploadFile(File file) throws IOException;
      File getFile(String id);
      Stream<File> getAllFiles();
      File updateFile(File file, String id);

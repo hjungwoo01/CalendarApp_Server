@@ -19,9 +19,7 @@ public class FileServiceImpl implements FileService {
     public FileServiceImpl(FileDAO fileDAO) {
         this.fileDAO = fileDAO;
     }
-    public File uploadFile(MultipartFile multipartFile) throws IOException {
-        String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
-        File file = new File(fileName, multipartFile.getContentType(), multipartFile.getBytes());
+    public File uploadFile(File file) throws IOException {
         return fileDAO.upload(file);
     }
 
