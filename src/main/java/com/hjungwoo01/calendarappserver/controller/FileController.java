@@ -50,7 +50,7 @@ public class FileController {
 
     @GetMapping("/getByMemoId/{memoId}")
     public ResponseEntity<byte[]> getFileByMemoId(@PathVariable long memoId) {
-        File file = fileService.getFile(memoId);
+        File file = fileService.getFileByMemoId(memoId);
 
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")
