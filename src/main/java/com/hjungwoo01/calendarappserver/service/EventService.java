@@ -4,7 +4,6 @@ import com.hjungwoo01.calendarappserver.model.event.Event;
 
 import java.util.List;
 public interface EventService {
-    // CRUD Operations
     Event saveEvent(Event event);
     List<Event> getAllEvents();
     List<Event> getEventsByOwner(String owner);

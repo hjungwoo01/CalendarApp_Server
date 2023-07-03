@@ -1,16 +1,16 @@
 package com.hjungwoo01.calendarappserver.service;
 
 import com.hjungwoo01.calendarappserver.model.file.File;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.stream.Stream;
+import java.util.List;
 
 
 public interface FileService {
      File uploadFile(File file) throws IOException;
-     File getFile(String id);
-     Stream<File> getAllFiles();
-     File updateFile(File file, String id);
-     void deleteFile(String id);
+     File getFile(long id);
+     File getFileByMemoId(long memoId);
+     List<File> getAllFiles();
+     File updateFile(File file, long id);
+     void deleteFile(long id);
 }

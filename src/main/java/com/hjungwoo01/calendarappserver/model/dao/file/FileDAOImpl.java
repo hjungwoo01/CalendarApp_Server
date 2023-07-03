@@ -6,7 +6,7 @@ import com.hjungwoo01.calendarappserver.repositories.file.FileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.stream.Stream;
+import java.util.List;
 @Repository
 public class FileDAOImpl implements FileDAO {
     private final FileRepository fileRepository;
@@ -22,18 +22,24 @@ public class FileDAOImpl implements FileDAO {
     }
 
     @Override
-    public Stream<File> getAll() {
-        return fileRepository.findAll().stream();
+    public List<File> getAll() {
+        return fileRepository.findAll();
     }
 
     @Override
-    public File getById(String id) {
+    public File getById(long id) {
         return fileRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("File", "Id", id));
     }
 
     @Override
-    public void delete(String id) {
+    public File getByMemoId(long memoId) {
+        return fileRepository.findById(memoId).orElseThrow(() ->
+                new ResourceNotFoundException("File", "MemoId", memoId));
+    }
+
+    @Override
+    public void delete(long id) {
         fileRepository.deleteById(id);
     }
 }

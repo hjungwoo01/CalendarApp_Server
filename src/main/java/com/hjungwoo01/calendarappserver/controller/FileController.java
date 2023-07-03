@@ -16,13 +16,17 @@ import java.util.List;
 @RequestMapping("/memos/files")
 public class FileController {
     private FileService fileService;
+    public FileController(FileService fileService) {
+        super();
+        this.fileService = fileService;
+    }
     @GetMapping("/get-all")
     public ResponseEntity<List<ResponseFile>> getAllFiles() {
-        List<ResponseFile> files = fileService.getAllFiles().map(file -> {
+        List<ResponseFile> files = fileService.getAllFiles().stream().map(file -> {
             String fileDownloadUri = ServletUriComponentsBuilder
                     .fromCurrentContextPath()
                     .path("/")
-                    .path(file.getId())
+                    .path(String.valueOf(file.getId()))
                     .toUriString();
 
             return new ResponseFile(
@@ -36,8 +40,17 @@ public class FileController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<byte[]> getFile(@PathVariable String id) {
+    public ResponseEntity<byte[]> getFile(@PathVariable long id) {
         File file = fileService.getFile(id);
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")
+                .body(file.getData());
+    }
+
+    @GetMapping("/getByMemoId/{memoId}")
+    public ResponseEntity<byte[]> getFileByMemoId(@PathVariable long memoId) {
+        File file = fileService.getFile(memoId);
 
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")
@@ -58,7 +71,7 @@ public class FileController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<String> updateFile(@PathVariable ("id") String id, @RequestBody File file) {
+    public ResponseEntity<String> updateFile(@PathVariable ("id") long id, @RequestBody File file) {
         File updateFile = fileService.updateFile(file,id);
         if(updateFile != null) {
             return ResponseEntity.status(HttpStatus.OK).body("File updated.");
@@ -68,7 +81,7 @@ public class FileController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteFile(@PathVariable("id") String id) {
+    public ResponseEntity<String> deleteFile(@PathVariable("id") long id) {
         fileService.deleteFile(id);
         return new ResponseEntity<String>("File deleted.", HttpStatus.OK);
     }

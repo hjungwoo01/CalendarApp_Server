@@ -2,19 +2,31 @@ package com.hjungwoo01.calendarappserver.model.file;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.antlr.v4.runtime.misc.NotNull;
 
 @Data
 @Entity
 @Table(schema = "memos", name = "files")
 public class File {
     @Id
-    @GeneratedValue(generator = "uuid")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "memoId")
     private long memoId;
+
+    @Column(name = "name")
     private String name;
+
+    @NotNull
+    @Column(name = "type")
     private String type;
+
     @Lob
+    @NotNull
+    @Column(name = "data")
     private byte[] data;
+
     public File() {
     }
     public File(String name, String type, byte[] data) {
@@ -22,7 +34,7 @@ public class File {
         this.type = type;
         this.data = data;
     }
-    public String getId() {
+    public long getId() {
         return id;
     }
     public long getMemoId() {

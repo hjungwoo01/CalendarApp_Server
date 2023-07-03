@@ -4,12 +4,9 @@ import com.hjungwoo01.calendarappserver.model.dao.file.FileDAO;
 import com.hjungwoo01.calendarappserver.model.file.File;
 import com.hjungwoo01.calendarappserver.service.FileService;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Objects;
-import java.util.stream.Stream;
+import java.util.List;
 
 @Service
 public class FileServiceImpl implements FileService {
@@ -23,16 +20,21 @@ public class FileServiceImpl implements FileService {
         return fileDAO.upload(file);
     }
 
-    public File getFile(String id) {
+    public File getFile(long id) {
         return fileDAO.getById(id);
     }
 
-    public Stream<File> getAllFiles() {
+    @Override
+    public File getFileByMemoId(long memoId) {
+        return fileDAO.getByMemoId(memoId);
+    }
+
+    public List<File> getAllFiles() {
         return fileDAO.getAll();
     }
 
     @Override
-    public File updateFile(File file, String id) {
+    public File updateFile(File file, long id) {
         File existingFile = getFile(id);
         existingFile.setMemoId(file.getMemoId());
         existingFile.setName(file.getName());
@@ -42,7 +44,7 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public void deleteFile(String id) {
+    public void deleteFile(long id) {
         getFile(id);
         fileDAO.delete(id);
     }

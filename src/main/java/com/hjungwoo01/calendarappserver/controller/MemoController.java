@@ -49,12 +49,12 @@ public class MemoController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<String> saveMemo(@RequestBody Memo memo) {
+    public ResponseEntity<Memo> saveMemo(@RequestBody Memo memo) {
         Memo savedMemo = memoService.saveMemo(memo);
         if (savedMemo != null) {
-            return ResponseEntity.status(HttpStatus.CREATED).body("Memo added successfully.");
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedMemo);
         } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to save memo.");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
