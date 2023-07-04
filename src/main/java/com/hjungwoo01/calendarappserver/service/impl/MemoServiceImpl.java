@@ -57,7 +57,6 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public void deleteMemo(long id) {
-        getMemoById(id);
         memoDAO.delete(id);
     }
 }

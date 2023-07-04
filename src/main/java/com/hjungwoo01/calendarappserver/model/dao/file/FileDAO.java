@@ -9,5 +9,5 @@ public interface FileDAO {
     List<File> getAll();
     File getById(long id);
     File getByMemoId(long memoId);
-    void delete(long id);
+    void deleteFile(long id);
 }

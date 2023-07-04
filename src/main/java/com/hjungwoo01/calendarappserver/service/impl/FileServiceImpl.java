@@ -4,8 +4,6 @@ import com.hjungwoo01.calendarappserver.model.dao.file.FileDAO;
 import com.hjungwoo01.calendarappserver.model.file.File;
 import com.hjungwoo01.calendarappserver.service.FileService;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -16,10 +14,13 @@ public class FileServiceImpl implements FileService {
     public FileServiceImpl(FileDAO fileDAO) {
         this.fileDAO = fileDAO;
     }
-    public File uploadFile(File file) throws IOException {
+
+    @Override
+    public File uploadFile(File file) {
         return fileDAO.upload(file);
     }
 
+    @Override
     public File getFile(long id) {
         return fileDAO.getById(id);
     }
@@ -29,14 +30,14 @@ public class FileServiceImpl implements FileService {
         return fileDAO.getByMemoId(memoId);
     }
 
+    @Override
     public List<File> getAllFiles() {
         return fileDAO.getAll();
     }
 
     @Override
-    public File updateFile(File file, long id) {
-        File existingFile = getFile(id);
-        existingFile.setMemoId(file.getMemoId());
+    public File updateFileByMemoId(File file, long memoId) {
+        File existingFile = getFileByMemoId(memoId);
         existingFile.setName(file.getName());
         existingFile.setType(file.getType());
         existingFile.setData(file.getData());
@@ -45,7 +46,6 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public void deleteFile(long id) {
-        getFile(id);
-        fileDAO.delete(id);
+        fileDAO.deleteFile(id);
     }
 }

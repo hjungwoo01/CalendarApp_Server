@@ -55,7 +55,6 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public void deleteEvent(long id) {
-        getEventById(id);
         eventDAO.delete(id);
     }
 }

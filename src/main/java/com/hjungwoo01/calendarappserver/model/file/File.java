@@ -12,6 +12,7 @@ public class File {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull
     @Column(name = "memoId")
     private long memoId;
 
@@ -26,39 +27,4 @@ public class File {
     @NotNull
     @Column(name = "data")
     private byte[] data;
-
-    public File() {
-    }
-    public File(String name, String type, byte[] data) {
-        this.name = name;
-        this.type = type;
-        this.data = data;
-    }
-    public long getId() {
-        return id;
-    }
-    public long getMemoId() {
-        return memoId;
-    }
-    public void setMemoId(long id) {
-        this.memoId = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
-    public byte[] getData() {
-        return data;
-    }
-    public void setData(byte[] data) {
-        this.data = data;
-    }
 }

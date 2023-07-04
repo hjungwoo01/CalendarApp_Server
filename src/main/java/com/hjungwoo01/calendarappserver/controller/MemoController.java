@@ -59,12 +59,12 @@ public class MemoController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<String> updateMemo(@PathVariable ("id") long id, @RequestBody Memo memo) {
+    public ResponseEntity<Memo> updateMemo(@PathVariable ("id") long id, @RequestBody Memo memo) {
         Memo updateMemo = memoService.updateMemo(memo,id);
         if(updateMemo != null) {
-            return ResponseEntity.status(HttpStatus.OK).body("Memo updated.");
+            return ResponseEntity.status(HttpStatus.OK).body(updateMemo);
         } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Memo update failed.");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 

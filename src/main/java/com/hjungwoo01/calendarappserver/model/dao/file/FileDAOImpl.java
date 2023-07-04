@@ -34,12 +34,12 @@ public class FileDAOImpl implements FileDAO {
 
     @Override
     public File getByMemoId(long memoId) {
-        return fileRepository.findById(memoId).orElseThrow(() ->
+        return fileRepository.findByMemoId(memoId).orElseThrow(() ->
                 new ResourceNotFoundException("File", "MemoId", memoId));
     }
 
     @Override
-    public void delete(long id) {
+    public void deleteFile(long id) {
         fileRepository.deleteById(id);
     }
 }
