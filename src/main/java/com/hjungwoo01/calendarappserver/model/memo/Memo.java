@@ -30,4 +30,7 @@ public class Memo {
     @NotNull
     @Column(name = "date")
     private String date;
+
+    @Column(name = "readReceivers")
+    private String readReceivers;
 }

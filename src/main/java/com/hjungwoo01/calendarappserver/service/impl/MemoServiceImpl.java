@@ -52,6 +52,7 @@ public class MemoServiceImpl implements MemoService {
         existingMemo.setMemoName(memo.getMemoName());
         existingMemo.setMemo(memo.getMemo());
         existingMemo.setDate(memo.getDate());
+        existingMemo.setReadReceivers(memo.getReadReceivers());
         return memoDAO.save(existingMemo);
     }
 
