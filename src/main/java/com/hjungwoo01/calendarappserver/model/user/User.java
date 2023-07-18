@@ -13,6 +13,10 @@ public class User {
     private long id;
 
     @NotNull
+    @Column(name = "uuid")
+    private String uuid;
+
+    @NotNull
     @Column(name = "name")
     private String name;
 

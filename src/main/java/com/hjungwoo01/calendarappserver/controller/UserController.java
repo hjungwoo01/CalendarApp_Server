@@ -28,6 +28,16 @@ public class UserController {
         return new ResponseEntity<>(userService.getUserById(userId), HttpStatus.OK);
     }
 
+    @GetMapping("/get-by-uuid/{uuid}")
+    public ResponseEntity<List<User>> getUsersByUuid(@PathVariable("uuid") String uuid) {
+        List<User> users = userService.getUsersByUuid(uuid);
+        if (!users.isEmpty()) {
+            return ResponseEntity.ok(users);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping("/save")
     public ResponseEntity<String> saveUser(@RequestBody User user) {
         User savedUser = userService.saveUser(user);

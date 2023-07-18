@@ -34,6 +34,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public List<User> getByUuid(String uuid) {
+        return userRepository.findByUuid(uuid);
+    }
+
+    @Override
     public void delete(long id) {
         userRepository.deleteById(id);
     }

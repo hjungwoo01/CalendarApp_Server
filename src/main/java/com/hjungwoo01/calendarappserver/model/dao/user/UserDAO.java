@@ -8,5 +8,6 @@ public interface UserDAO {
     User save(User user);
     List<User> getAll();
     User getById(long id);
+    List<User> getByUuid(String uuid);
     void delete(long id);
 }
