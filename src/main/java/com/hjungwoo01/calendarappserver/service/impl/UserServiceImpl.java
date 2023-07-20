@@ -49,4 +49,9 @@ public class UserServiceImpl implements UserService {
     public List<User> getUsersByUuid(String uuid) {
         return userDAO.getByUuid(uuid);
     }
+
+    @Override
+    public void deleteUserByName(String name) {
+        userDAO.deleteByName(name);
+    }
 }

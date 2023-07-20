@@ -42,4 +42,9 @@ public class UserDAOImpl implements UserDAO {
     public void delete(long id) {
         userRepository.deleteById(id);
     }
+
+    @Override
+    public void deleteByName(String name) {
+        userRepository.deleteUsersByName(name);
+    }
 }
