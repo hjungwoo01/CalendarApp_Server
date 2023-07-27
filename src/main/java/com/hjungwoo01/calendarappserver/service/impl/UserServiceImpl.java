@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUserByName(String name) {
-        userDAO.deleteByName(name);
+    public void deleteUserByNameAndUuid(String name, String uuid) {
+        userDAO.deleteByNameAndUuid(name, uuid);
     }
 }

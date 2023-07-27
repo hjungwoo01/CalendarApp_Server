@@ -11,5 +11,5 @@ public interface UserService {
     User updateUser(User user, long id);
     void deleteUser(long id);
     List<User> getUsersByUuid(String uuid);
-    void deleteUserByName(String name);
+    void deleteUserByNameAndUuid(String name, String uuid);
 }

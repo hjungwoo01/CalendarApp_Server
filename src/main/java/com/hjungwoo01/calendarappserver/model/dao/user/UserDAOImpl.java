@@ -44,7 +44,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void deleteByName(String name) {
-        userRepository.deleteUsersByName(name);
+    public void deleteByNameAndUuid(String name, String uuid) {
+        userRepository.deleteByNameAndUuid(name, uuid);
     }
 }
