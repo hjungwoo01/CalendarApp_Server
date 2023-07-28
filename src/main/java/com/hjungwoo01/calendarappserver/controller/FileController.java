@@ -54,7 +54,7 @@ public class FileController {
                 .body(new ByteArrayResource(file.getData()));
     }
 
-    @GetMapping("/getByMemoId/{memoId}")
+    @GetMapping("/get-by-memo-id/{memoId}")
     public ResponseEntity<Resource> getFileByMemoId(@PathVariable("memoId") long memoId) {
         File file = fileService.getFileByMemoId(memoId);
         return ResponseEntity.ok()
@@ -81,7 +81,7 @@ public class FileController {
         }
     }
 
-    @PutMapping("/updateByMemoId/{memoId}")
+    @PutMapping("/update-by-memo-id/{memoId}")
     public ResponseEntity<String> updateFileByMemoId(@PathVariable ("memoId") long memoId, @RequestBody File file) {
         File updateFile = fileService.updateFileByMemoId(file, memoId);
         if(updateFile != null) {
@@ -91,7 +91,7 @@ public class FileController {
         }
     }
 
-    @DeleteMapping("/deleteByMemoId/{memoId}")
+    @DeleteMapping("/delete-by-memo-id/{memoId}")
     public ResponseEntity<String> deleteFileByMemoId(@PathVariable("memoId") long memoId) {
         File fileToDelete = fileService.getFileByMemoId(memoId);
         fileService.deleteFile(fileToDelete.getId());
